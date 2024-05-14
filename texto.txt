@@ -2,7 +2,7 @@ Primera modificacion de prueba al texto
 
 #Trabajo practico evaluativo Estadisticas y probabilidad
 
-'''PAUTAS
+PAUTAS
 DATOS TIPO FLOAT TODOS
 La longitud de la muestra la determina el usuario ingresando por teclado
 datos almacenados para la muestra almacenados en vectores (LOS QUE INGRESA EL USUARIO)
