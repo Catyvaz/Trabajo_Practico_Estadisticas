@@ -23,3 +23,40 @@ Varianza
 Desviacion estandard 
 Frecuencia absoluta es la cantidad de veces que aparece un dato en la muestra
 Frecuencia relativa es la proporcion de veces que aparece ese dato respectoa al total FA/N'''
+
+
+
+
+def CalcularMediana(lista):
+    listaOrdenada=sorted(lista)
+    longitudLista=len(listaOrdenada)
+    
+    if longitudLista % 2 == 0:
+        medioIzq = listaOrdenada[longitudLista // 2 -1 ]
+        medioDer = listaOrdenada[longitudLista // 2 ]
+        mediana = (medioIzq + medioDer) / 2
+    else:
+        mediana = listaOrdenada [longitudLista // 2]
+
+        
+        return mediana
+    
+
+
+
+
+
+
+def CalcularQuartiles(lista):
+    listaOrdenada=sorted(lista)
+    longitudLista=len(lista)
+
+    q1_index= int(0.25 * (longitudLista + 1))
+    q2_index= int(0.5 * (longitudLista + 1))
+    q3_index= int(0.75 * (longitudLista + 1))
+
+    q1= listaOrdenada[q1_index]
+    q2= listaOrdenada[q2_index]
+    q3= listaOrdenada[q3_index]
+
+    return q1, q2, q3 
