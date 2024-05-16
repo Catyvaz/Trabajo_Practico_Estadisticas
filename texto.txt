@@ -60,3 +60,29 @@ def CalcularQuartiles(lista):
     q3= listaOrdenada[q3_index]
 
     return q1, q2, q3 
+
+
+
+
+
+
+
+def CalcularModa(lista):
+    frequencia= {}
+    for elemento in lista:
+        if elemento in frequencia:
+            frequencia[elemento] +=1
+        else:
+            frequencia[elemento] = 1
+    moda = None
+    maxFrequencia= 0
+    for elemento, frequencia in frequencia.items():
+        if frequencia>maxFrequencia:
+            moda=elemento
+            maxFrequencia=frequencia
+            
+    return moda
+
+
+
+
