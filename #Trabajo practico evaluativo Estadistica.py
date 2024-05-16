@@ -5,3 +5,4 @@ def Media (SumaDatos,CantDatos):
 
 #El usuario ya cargo todos los datos
 Media(SumaDatos,CantDatos)
+
