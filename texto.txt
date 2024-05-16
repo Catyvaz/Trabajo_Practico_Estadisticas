@@ -99,3 +99,20 @@ def CalcularMayor(lista):
     return mayor
 
     
+#Esta función determina qué numero de la muestra es el mayor
+def CalcularMayor(lista):
+    #Se crean las variables 
+    #"contador" (para ir contando cada vez que se analiza una muestra hasta llegar al largo deseado)
+    cont=0
+    # "mayor" para almacenar cuál numero es más grande en cada vuelta que va haciendo el ciclo while hasta conseguir el mauor de todos
+    mayor=0
+    #El ciclo while se utiliza para recorrer el código por cada elemento de la lista dependiendo el largo de la lista
+    while cont<len(lista):
+        #Se verifica que si el mayor está vacío, el mayor número será el primero de la lista
+        if mayor==0:
+            mayor=lista
+        #Compara al número que sea el actual mayor con el siguiente número en la lista
+        if lista>mayor:
+            mayor=lista
+    #Devuelve el número que es el mayor
+    return mayor
