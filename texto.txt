@@ -4,23 +4,116 @@ Primera modificacion de prueba al texto
 
 PAUTAS
 DATOS TIPO FLOAT TODOS
-La longitud de la muestra la determina el usuario ingresando por teclado
-datos almacenados para la muestra almacenados en vectores (LOS QUE INGRESA EL USUARIO)
-El vector se recorre para determinar la mediana
-EL Programa primero debe determinar las medidas de posicion para poder obtener las medidas de dispersion 
+- La longitud de la muestra la determina el usuario ingresando por teclado datos almacenados para la muestra almacenados en vectores (LOS QUE INGRESA EL USUARIO)
+- El vector se recorre para determinar la mediana
+- EL Programa primero debe determinar las medidas de posicion para poder obtener las medidas de dispersion 
 Que se puedan cargar los datos de la muestra de forma desordenada y que el programa los ordene de menor a mayor
 Navegacion del usuario mediante numeros ej: 1) para ver la mediana 2) para ver la moda ... 5) para volver atras 
 
 Determinar:
 Medidas de posicion 
-*media suma de todos los datos / la cantidad de datos
-mediana la mediana es el valor que separa la muestra en un 50% a la izquierda y un 50% a la derecha. En caso de par, se suman los valores centrales y se los divide por 2
-moda el valor que mas se repite dentro de la muestra
-cuartiles se separa en porcentajes del 25%
+**media suma de todos los datos / la cantidad de datos
+** mediana la mediana es el valor que separa la muestra en un 50% a la izquierda y un 50% a la derecha. En caso de par, se suman los valores centrales y se los divide por 2
+**moda el valor que mas se repite dentro de la muestra
+cuartiles se separa en porcentajes del 25% **
 media recortada es el numero de datos por el porcentaje a recortar / 100 
 
 medidas de dispersion
 Varianza
-Desviacion estandard 
+Desviacion estandard **
+
 Frecuencia absoluta es la cantidad de veces que aparece un dato en la muestra
 Frecuencia relativa es la proporcion de veces que aparece ese dato respectoa al total FA/N'''
+
+
+
+
+def CalcularMediana(lista):
+    listaOrdenada=sorted(lista)
+    longitudLista=len(listaOrdenada)
+    
+    if longitudLista % 2 == 0:
+        medioIzq = listaOrdenada[longitudLista // 2 -1 ]
+        medioDer = listaOrdenada[longitudLista // 2 ]
+        mediana = (medioIzq + medioDer) / 2
+    else:
+        mediana = listaOrdenada [longitudLista // 2]
+
+        
+        return mediana
+    
+
+
+
+
+
+
+def CalcularQuartiles(lista):
+    listaOrdenada=sorted(lista)
+    longitudLista=len(lista)
+
+    q1_index= int(0.25 * (longitudLista + 1))
+    q2_index= int(0.5 * (longitudLista + 1))
+    q3_index= int(0.75 * (longitudLista + 1))
+
+    q1= listaOrdenada[q1_index]
+    q2= listaOrdenada[q2_index]
+    q3= listaOrdenada[q3_index]
+
+    return q1, q2, q3 
+
+
+
+
+
+
+
+def CalcularModa(lista):
+    frequencia= {}
+    for elemento in lista:
+        if elemento in frequencia:
+            frequencia[elemento] +=1
+        else:
+            frequencia[elemento] = 1
+    moda = None
+    maxFrequencia= 0
+    for elemento, frequencia in frequencia.items():
+        if frequencia>maxFrequencia:
+            moda=elemento
+            maxFrequencia=frequencia
+            
+    return moda
+
+
+
+
+
+def CalcularMayor(lista):
+    cont=0
+    mayor=0
+    while cont<len(lista):
+        if mayor==0:
+            mayor=lista
+        if lista>mayor:
+            mayor=lista
+    
+    return mayor
+
+    
+#Esta función determina qué numero de la muestra es el mayor
+def CalcularMayor(lista):
+    #Se crean las variables 
+    #"contador" (para ir contando cada vez que se analiza una muestra hasta llegar al largo deseado)
+    cont=0
+    # "mayor" para almacenar cuál numero es más grande en cada vuelta que va haciendo el ciclo while hasta conseguir el mauor de todos
+    mayor=0
+    #El ciclo while se utiliza para recorrer el código por cada elemento de la lista dependiendo el largo de la lista
+    while cont<len(lista):
+        #Se verifica que si el mayor está vacío, el mayor número será el primero de la lista
+        if mayor==0:
+            mayor=lista
+        #Compara al número que sea el actual mayor con el siguiente número en la lista
+        if lista>mayor:
+            mayor=lista
+    #Devuelve el número que es el mayor
+    return mayor
