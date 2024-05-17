@@ -9,6 +9,7 @@ PAUTAS
 - EL Programa primero debe determinar las medidas de posicion para poder obtener las medidas de dispersion 
 Que se puedan cargar los datos de la muestra de forma desordenada y que el programa los ordene de menor a mayor
 Navegacion del usuario mediante numeros ej: 1) para ver la mediana 2) para ver la moda ... 5) para volver atras 
+Agregar a cada función su descripcion teorica 
 
 Determinar:
 Medidas de posicion 
