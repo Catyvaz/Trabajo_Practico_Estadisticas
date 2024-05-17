@@ -4,6 +4,16 @@ Funciones: SCREAMING SNAKE CASE  CALCULAR_MEDIA
 Variables: Pascal Snake Case Lista_Ordenada Medio_Izq							
 
 
+
+Frecuencia absoluta GASPAR fecha de entrega 17/05
+(Depende de la frecuencia absoluta)Frecuencia relativa CATY fecha de entrega 20/05
+(Depende de la frecuencia relativa)Frecuencia porcentual EVELYN fecha de entrega 20/05
+(Depende de la frecuencia absoluta)Frecuencia absoluta acumulada GASPAR fecha de entrega 20/05
+(Depende de la frecuencia porcentual)Frecuencia porcentual acumulada EVELYN fecha de entrega 20/05
+(Depende de la frecuencia relativa)Frecuencia relativa acumulada CATY fecha de entrega 20/05
+(No tiene dependencia directa)Intervalo de clase SOFI fecha de entrega 20/05
+(Depende del intervalo de clase)Amplitud de intervalos SOFI fecha de entrega 20/05
+
 Fechas: 
 17/05 Se reparten tareas de código.  
 20/05 1ra Reunión, tareas de código ya finalizadas(MEDIAS DE DISPERSIÓN), pulir código (Eliminar redundancias, agregar comentarios, normalizar nomenclaturas), realizar pruebas, tratar de romperlo, implementar menú de usuario.
