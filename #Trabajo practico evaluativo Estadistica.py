@@ -13,6 +13,22 @@ def MEDIA(lista):
     media = SUMA(lista)/len(lista)
     return media 
 
+def CALCULAR_MODA(lista):
+    frequencia= {}
+    for elemento in lista:
+        if elemento in frequencia:
+            frequencia[elemento] +=1
+        else:
+            frequencia[elemento] = 1
+    moda = None
+    maxFrequencia= 0
+    for elemento, frequencia in frequencia.items():
+        if frequencia>maxFrequencia:
+            moda=elemento
+            maxFrequencia=frequencia
+            
+    return moda
+
 # calcular promedio(sumatoria de todos los datos / cantidad de datos)
 def CALCULAR_PROMEDIO(lista):
     if len(lista) == 0:
