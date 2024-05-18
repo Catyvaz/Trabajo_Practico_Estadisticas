@@ -5,6 +5,15 @@ def CALCULAR_MENOR(lista):
             minimo = num
     return minimo
 
+def CALCULAR_FRECUENCIA_ABSOLUTA(lista):
+    frecuencias = {}
+    for elemento in lista:
+        if elemento in frecuencias:
+            frecuencias[elemento] += 1
+        else:
+            frecuencias[elemento] = 1
+    return frecuencias
+
 def SUMA(lista):
     suma = sum(lista)
     return suma
