@@ -35,26 +35,32 @@ def CALCULAR_FRECUENCIA_RELATIVA_1(lista):
 # Devuelve una LISTA
     return frecuencia_relativa
 
-# En esta funcion se ingresa una lista, y se devuelve un diccionario
-def CALCULAR_FRECUENCIA_RELATIVA_2(lista):
-# Se guarda el diccionario de las frecuencias absolutas
-    diccionario_abso_rela = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
-#Para cada elemento del diccionario.
-    for elemento in diccionario_abso_rela:
-# se guarda en la variable la divicion de valor absoluto del elemento en el diccionario y se lo divide por la cantida de elementos en a lista original
-# Se agrega al diccionario un nuevo parametro que es F_relativa, con el valor de la frecuencia relativa del elemento
-        frecuencia_relativa = diccionario_abso_rela[elemento] / len(lista)
-        diccionario_abso_rela[elemento] = {"F_relativa": frecuencia_relativa}
-# Se devuelve un DICCIONARIO
-    return diccionario_abso_rela
+def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
+    frecuencia_relativa_acumulada = []
+    lista_sin_duplicados = SOLO_UN_ELEMENTO(lista)
+    
+
 
 
 print("\n")
 lis = [1,1,1,2,2,5,5,5,6,7,7,8]
 absoluta = CALCULAR_FRECUENCIA_ABSOLUTA(lis)
 frecuencia_1 = CALCULAR_FRECUENCIA_RELATIVA_1(lis)
-frecuencia_2= CALCULAR_FRECUENCIA_RELATIVA_2(lis)
+# frecuencia_2= CALCULAR_FRECUENCIA_RELATIVA_2(lis)
 print("absoluta  " , absoluta)
 print("frecuencia en lista  ", frecuencia_1)
-print("frecuencia en diccionario  ", frecuencia_2)
+# print("frecuencia en diccionario  ", frecuencia_2)
 print("\n")
+
+# # En esta funcion se ingresa una lista, y se devuelve un diccionario
+# def CALCULAR_FRECUENCIA_RELATIVA_2(lista):
+# # Se guarda el diccionario de las frecuencias absolutas
+#     diccionario_abso_rela = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+# #Para cada elemento del diccionario.
+#     for elemento in diccionario_abso_rela:
+# # se guarda en la variable la divicion de valor absoluto del elemento en el diccionario y se lo divide por la cantida de elementos en a lista original
+# # Se agrega al diccionario un nuevo parametro que es F_relativa, con el valor de la frecuencia relativa del elemento
+#         frecuencia_relativa = diccionario_abso_rela[elemento] / len(lista)
+#         diccionario_abso_rela[elemento] = {"F_relativa": frecuencia_relativa}
+# # Se devuelve un DICCIONARIO
+#     return diccionario_abso_rela
