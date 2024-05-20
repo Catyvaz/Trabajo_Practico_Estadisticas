@@ -20,7 +20,7 @@ def SOLO_UN_ELEMENTO(lista):
 # La lista al llegar aca ya está ordenada
 
 # En esta funcion se ingresa una lista, y se devuelve otra lista con las frecuencias relativas de cada elemento de la lista (elementos no repetidos)
-def CALCULAR_FRECUENCIA_RELATIVA_1(lista):
+def CALCULAR_FRECUENCIA_RELATIVA(lista):
     # 1. lista para utilizar al final. 2. Una lista con los elementos sin repetir. 3. El diccionario con las frecuencias absolutas de la lista
     frecuencia_relativa = []
     lista_sin_duplicados = SOLO_UN_ELEMENTO(lista)
@@ -36,17 +36,28 @@ def CALCULAR_FRECUENCIA_RELATIVA_1(lista):
     return frecuencia_relativa
 
 def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
+    # se crea una lista nueva, vacia, que es donde se van a guardar los datos de la acumulada
     frecuencia_relativa_acumulada = []
-    lista_sin_duplicados = SOLO_UN_ELEMENTO(lista)
-    
+    # se crea una variable tipo lista que almacena las frecuencias relativas de los elementos de la lista
+    frecuencia_relativa = CALCULAR_FRECUENCIA_RELATIVA(lista)
+    total = 0
+
+    # Se pasa por cada elemento de la lista, y se lo suma al total, el cual va acumulando todos los valores
+    for i in range (len(frecuencia_relativa)):
+        total += frecuencia_relativa[i]
+        frecuencia_relativa_acumulada.append(total)
+    # La funcion devuelve una LISTA con todos los valores de la aumulada, en la posicion de los elementos de la lista, sin duplicar y ya ordenados de mayor a menor.
+    return frecuencia_relativa_acumulada
 
 print("\n")
 lis = [1,1,1,2,2,5,5,5,6,7,7,8]
 absoluta = CALCULAR_FRECUENCIA_ABSOLUTA(lis)
-frecuencia_1 = CALCULAR_FRECUENCIA_RELATIVA_1(lis)
+frecuencia_1 = CALCULAR_FRECUENCIA_RELATIVA(lis)
+frecuencia_rela_acum = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lis)
 # frecuencia_2= CALCULAR_FRECUENCIA_RELATIVA_2(lis)
 print("absoluta  " , absoluta)
 print("frecuencia en lista  ", frecuencia_1)
+print("frecuencia relativa acumulada: ", frecuencia_rela_acum)
 # print("frecuencia en diccionario  ", frecuencia_2)
 print("\n")
 
