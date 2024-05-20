@@ -20,3 +20,12 @@ Fechas:
 22/05 2da Reunión previa a la clase. Se verifica la funcionalidad del programa, se registran posibles inconvenientes a ser solucionados el día siguiente.
 23/05 Se muestra el programa, se toman los comentarios realizados. Se mejora según indique el profesor
 25/05 Fecha límite, proyecto finalizado
+
+def Calcular_Frecuencia_Absoluta_Acumulada(lista):
+    Frecuencias_Absolutas = Calcular_Frecuencia_Absoluta(lista)
+    Frecuencia_Absoluta_Acumulada = {}
+    Acumulador = 0
+    for elemento, frecuencia in Frecuencias_Absolutas.items():
+        acumulador += frecuencia
+        Frecuencia_Absoluta_Acumulada[elemento] = acumulador
+    return Frecuencia_Absoluta_Acumulada
