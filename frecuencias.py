@@ -40,8 +40,6 @@ def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     lista_sin_duplicados = SOLO_UN_ELEMENTO(lista)
     
 
-
-
 print("\n")
 lis = [1,1,1,2,2,5,5,5,6,7,7,8]
 absoluta = CALCULAR_FRECUENCIA_ABSOLUTA(lis)
