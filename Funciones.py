@@ -39,22 +39,23 @@ def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     # La funcion devuelve una LISTA con todos los valores de la aumulada, en la posicion de los elementos de la lista, ya ordenados de mayor a menor.
     return frecuencia_relativa_acumulada
 
-    def AGREGAR_ELEMENTOS_INPUT(lista):
-        print("Ingrese las muestras una por una. Cuando ya no desee agregar más, coloque la palabra FIN")
-while True:
-    # Se ingresan los numeros uno por uno y mediante el "numero_muestra + 1" se va incrementando en la terminal el numero que se ingresa.
-    valor = input(f"Ingrese número de muestra {numero_muestra + 1}: ")
-    # Aca se evalua si el elemento ingresado es de valor numerico. 
-    # Si es un valor numerico, se lo agrega a la lista "lista_muestras".
-    # Si el valor es NO numerico, se evalua; si es la palabra "FIN" no se desean agregar mas números a la lista, si es una letra random marca no valido y deja volver a intentar.
-    if valor.isdigit():
-        lista_muestras.append(valor)
-        numero_muestra += 1
-    elif valor.isalpha():
-        if valor.upper() == "FIN":
-            print("Fin de las muestras")
-            break
-        else:
-            print("Comando no válido, intente de nuevo.")
-lista_muestras = sorted(lista_muestras)
-print(lista_muestras)
+def AGREGAR_ELEMENTOS_INPUT(lista):
+    numero_muestra = 0
+    print("Ingrese las muestras una por una. Cuando ya no desee agregar más, coloque la palabra FIN")
+    while True:
+        # Se ingresan los numeros uno por uno y mediante el "numero_muestra + 1" se va incrementando en la terminal el numero que se ingresa.
+        valor = input(f"Ingrese número de muestra {numero_muestra + 1}: ")
+        # Aca se evalua si el elemento ingresado es de valor numerico. 
+        # Si es un valor numerico, se lo agrega a la lista "lista_muestras".
+        # Si el valor es NO numerico, se evalua; si es la palabra "FIN" no se desean agregar mas números a la lista, si es una letra random marca no valido y deja volver a intentar.
+        if valor.isdigit():
+            lista_muestras.append(valor)
+            numero_muestra += 1
+        elif valor.isalpha():
+            if valor.upper() == "FIN":
+                print("Fin de las muestras")
+                break
+            else:
+                print("Comando no válido, intente de nuevo.")
+    lista_muestras = sorted(lista_muestras)
+    return lista_muestras
