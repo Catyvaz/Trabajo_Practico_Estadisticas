@@ -1,10 +1,3 @@
-def CALCULAR_MENOR(lista):
-    minimo = lista[0]
-    for num in lista:
-        if num < minimo:
-            minimo = num
-    return minimo
-
 def SUMA(lista):
     suma = sum(lista)
     return suma
