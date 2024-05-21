@@ -1,9 +1,5 @@
-def SUMA(lista):
-    suma = sum(lista)
-    return suma
-
 def MEDIA(lista):
-    media = SUMA(lista)/len(lista)
+    media = sum(lista)/len(lista)
     return media 
 
 def CALCULAR_MODA(lista):
