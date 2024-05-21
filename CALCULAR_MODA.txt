@@ -1,0 +1,18 @@
+#Calcula el elemento que más se repite en la lista
+def CALCULAR_MODA(lista):
+    #En la variable frecuencia se almacena la cantidad de veces que se repite un número de la lista
+    frequencia= {}
+    for elemento in lista:
+        if elemento in frequencia:
+            frequencia[elemento] +=1
+        else:
+            frequencia[elemento] = 1
+    #se crean las variables moda y frecuencia máxima        
+    moda = None
+    maxFrequencia= 0
+    for elemento, frequencia in frequencia.items():
+        if frequencia>maxFrequencia:
+            moda=elemento
+            maxFrequencia=frequencia
+            
+    return moda
