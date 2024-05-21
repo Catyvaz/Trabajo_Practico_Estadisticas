@@ -15,7 +15,7 @@ def CALCULAR_MODA(lista):
         if frequencia>maxFrequencia:
             moda=elemento
             maxFrequencia=frequencia
-            
+              
     return moda
 
 # calcular promedio(sumatoria de todos los datos / cantidad de datos)

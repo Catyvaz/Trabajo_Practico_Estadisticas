@@ -1,3 +1,4 @@
 1. Como se muestran los resultados de las frecuencias, un elemento ingresado por los usuarios, todos los elementos. Se muestra una valor por muestra o se repite.
 2. Con diccionario o sin diccionario.
+3. la lista despues de entrar se tiene que ordenar o la ordenamos si es necesario en la funcion?
 
