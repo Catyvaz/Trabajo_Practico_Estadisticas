@@ -65,14 +65,39 @@
 #     valor_rango = n_mayor - n_menor
 #     return valor_rango
 
-numero_muestra = 0
+# Converti el input en una funcion, para que si en algun momento se desean agregar mas elementos, se pueda reutilizar
+def AGREGAR_ELEMENTOS_INPUT(lista):
+    numero_muestra = 0
+    print("Ingrese las muestras una por una. Cuando ya no desee agregar más, coloque la palabra FIN")
+    while True:
+        # Se ingresan los numeros uno por uno y mediante el "numero_muestra + 1" se va incrementando en la terminal el numero que se ingresa.
+        valor = input(f"Ingrese número de muestra {numero_muestra + 1}: ")
+        # Aca se evalua si el elemento ingresado es de valor numerico. 
+        # Si es un valor numerico, se lo agrega a la lista "lista_muestras".
+        # Si el valor es NO numerico, se evalua; si es la palabra "FIN" no se desean agregar mas números a la lista, si es una letra random marca no valido y deja volver a intentar.
+        if valor.isdigit():
+            lista.append(int(valor))
+            numero_muestra += 1
+        elif valor.isalpha():
+            if valor.upper() == "FIN":
+                print("Fin de las muestras")
+                break
+            else:
+                print("Comando no válido, intente de nuevo.")
+    lista = sorted(lista)
+    return lista
+
 lista_muestras = []
+lista_muestras = AGREGAR_ELEMENTOS_INPUT(lista_muestras)
+numero_muestra = len(lista_muestras)
+print(lista_muestras)
+print(numero_muestra)
 
-
-while True:
-    cambios = input("Desea realizar algun cambio? \n 1 = SI | 2 = NO: ")
-    if cambios == 1:
-        si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3")
+#CATY terminar la funcionalidad de modificar la lista
+# while True:
+#     cambios = input("Desea realizar algun cambio? \n 1 = SI | 2 = NO: ")
+#     if cambios == 1:
+#         si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3 = agregar")
 
 
 
