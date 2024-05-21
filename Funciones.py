@@ -26,14 +26,14 @@ def CALCULAR_FRECUENCIA_RELATIVA(lista):
     # 1. lista para utilizar al final. 2. Una lista con los elementos sin repetir. 3. El diccionario con las frecuencias absolutas de la lista
     frecuencia_relativa = []
     frecuencia_absoluta = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
-# se evaluan los elementos que estan en la lista, y utilizando el elemento como key, se busca el valor absoluto del elemento
-# Al tener la frecuencia absoluta, se la divide por la cantidad de elementos en la lista original. Se agrega SOLO el valor relativo a la lista
-# en la posicion del elemento 
+    # se evaluan los elementos que estan en la lista, y utilizando el elemento como key, se busca el valor absoluto del elemento
+    # Al tener la frecuencia absoluta, se la divide por la cantidad de elementos en la lista original. Se agrega SOLO el valor relativo a la lista
+    # en la posicion del elemento 
     for elemento in lista:
         absoluta = frecuencia_absoluta[(elemento)]
         frecuencia = absoluta / len(lista)
         frecuencia_relativa.append(round(frecuencia, 4)) #ver si hay que redondearlo o no
-# Devuelve una LISTA
+    # Devuelve una LISTA
     return frecuencia_relativa
 
 def CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista):

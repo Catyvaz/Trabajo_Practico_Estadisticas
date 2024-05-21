@@ -99,20 +99,28 @@ print(numero_muestra)
 #     if cambios == 1:
 #         si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3 = agregar")
 
+def MEDIDAS_POSICION(lista):
+    comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = RANGO.\n 7 = DESVIO ESTANDAR.\n 8 = CUARTILES.\n ==>"))
+    # if comando == 1:
 
+def TABLAS_FRECUENCIAS(lista):
+    comando = int(input("¿Que frecuencia desea conocer?\n 1 = ABSOLUTA. \n 2 = ABSOLUTA ACUMULADA.\n 3 = RELATIVA.\n 4 = RELATIVA ACUMULADA.\n 5 = PORCENTUAL.\n 6 = PORCENTUAL ACUMULADA.\n 7 = INTERVALOS.\ 8 = AMPLITUD DE INTERVALOS.\n ==> "))
+        
 
 while True:    
     #Este print le permite al usuario seleccionar que tipo de informacion desea recibir de la lista de muestras
-    # CATY, hay que hacer que esto sea mas util para el usuario (agregar numeros olvidados, que no se termine de una, etc) 
-    print("¿Qué desea conocer sobre esta lista?\n 1. MEDIA ARITMÉRICA.\n 2. MODA.\n 3. MEDIANA. \n 4. MÁXIMA.\n 5. MÍNIMA.\n 6. RANGO.\n 7. CUARTILES.\n 8. DESVIO ESTANDAR")
-    calculo = input("¿Qué desea calcular?: ")
-    comando = int(calculo)
-    if comando == 1:
-        value = MEDIA(lista_muestras)
-        print(value)
-    elif comando == 2:
-        value = 00000
-        
+    # CATY, hay que hacer que esto sea mas util para el usuario (agregar numeros olvidados, que no se termine de una, etc)
+    respuesta = input("¿Que medidas desea conocer? 1 = MEDIDAS DE POSICIÓN | 2 = FRECUENCIAS: ")
+    if int(respuesta) == 1:
+        print("Seleccionaste < medidas de posición >")
+        resultado = MEDIDAS_POSICION(lista_muestras)
+    elif int(respuesta) == 2:
+        print("Seleccionaste < frecuencias >")
+        resultado = TABLAS_FRECUENCIAS(lista_muestras)
+
+
+def CONTINUAR_PROGRAMA(valor):
+    
     #Aca se evalua si se quiere seguir utilizando el programa o no
     # CATY, ver que va a hacer el programa en caso de escribir un comando no valido, en todo caso, hacer que cualquier letra signifique fin del programa 
     continuacion = input("¿Desea volver a empezar? Y = si, N = no : ")
