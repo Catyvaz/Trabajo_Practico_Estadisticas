@@ -1,4 +1,6 @@
 
+#FRECUENCIAS
+
 def CALCULAR_FRECUENCIA_ABSOLUTA(lista):
     frecuencias = {}
     for elemento in lista:
