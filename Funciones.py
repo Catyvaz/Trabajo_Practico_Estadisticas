@@ -21,15 +21,16 @@ def CALCULAR_MODA(lista):
     return moda
 
 def CALCULAR_MEDIANA(lista):
-    listaOrdenada=sorted(lista)
-    longitudLista=len(listaOrdenada)
+    listaOrdenada=sorted(lista) # Ordena la lista de mayor a menor para luego poder obtener el valor del medio
+    longitudLista=len(listaOrdenada) # Almacena la longitud de la lista (ya ordenada)
     
-    if longitudLista % 2 == 0:
-        medioIzq = listaOrdenada[longitudLista // 2 -1 ]
-        medioDer = listaOrdenada[longitudLista // 2 ]
-        mediana = (medioIzq + medioDer) / 2
+    if longitudLista % 2 == 0: #Verifica si la longitud de la lista ordenada es par
+        medioIzq = listaOrdenada[longitudLista // 2 -1 ] #Define el indice del medio izquierdo de la lista dividiendo por dos (division entra )y restando 1 para posicionarse a la izquierda
+        medioDer = listaOrdenada[longitudLista // 2 ] #Define el indice del medio dercho de la lista 
+        mediana = (medioIzq + medioDer) / 2 #Suma las variables del medio y las divide por dos respetando la formula para calcular la mediana en listas con una longitud par
+        return mediana
     else:
-        mediana = listaOrdenada [longitudLista // 2]
+        mediana = listaOrdenada [longitudLista // 2] #En caso de ser impar se obtiene el indice central 
         return mediana
 
 # calcular promedio(sumatoria de todos los datos / cantidad de datos)
@@ -38,34 +39,29 @@ def CALCULAR_PROMEDIO(lista):
         return 0
     return sum(lista) / len(lista)
 
-# calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
+# calcular desviacion estandar((sumatoria de todos los datos - prom)**2/cant de datos -1)
 def DESVIACION_ESTANDAR(lista):
     n = len(lista)
     if n <= 1:
         return 0
     promedio = MEDIA(lista)
-    #Calcula la suma de los cuadrados de las diferencias entre cada elemento y el promedio
-    suma_resta_cuadrado = sum((x- promedio) ** 2 for x in lista)
-    #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
-    #y tomando la raiz cuadrada del resultado
+    suma_resta_cuadrado = (sum(lista) - promedio) ** 2
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
     return desviacion 
 
 def CALCULAR_CUARTILES(lista):
-    #Ordena la lista de menor a mayor y la guarda en la variable lista_ordenada
-    lista_ordenada=sorted(lista)
-    #Calcula la logitud de la lista y la guarda en variable longitus_lista
-    longitud_lista=len(lista)
+    lista.sort()
+    Longitud_Lista= len(lista)
+    if Longitud_Lista % 2 == 0:
+        q1 = (lista[Longitud_Lista//2 - 1] + lista[Longitud_Lista//2]) / 2
+        q2 = (lista[Longitud_Lista//4] + lista[Longitud_Lista//4*3]) / 2
+        q3 = (lista[Longitud_Lista//2*3 - 1] + lista[Longitud_Lista//2*3]) / 2
+    else:
+        q1 = lista[Longitud_Lista//2]
+        q2 = (lista[Longitud_Lista//4] + lista[Longitud_Lista//4*3]) / 2
+        q3 = lista[Longitud_Lista//2*3]
 
-    q1_index= int(0.25 * (longitud_lista + 1))
-    q2_index= int(0.5 * (longitud_lista + 1))
-    q3_index= int(0.75 * (longitud_lista + 1))
-
-    q1= lista_ordenada[q1_index]
-    q2= lista_ordenada[q2_index]
-    q3= lista_ordenada[q3_index]
-
-    return q1, q2, q3 
+    return q1, q2, q3
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
@@ -84,12 +80,12 @@ def CALCULAR_FRECUENCIA_ABSOLUTA(lista):
     return frecuencias
 
 def CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista):
-    Frecuencias_Absolutas = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
-    Frecuencia_Absoluta_Acumulada = {}
-    Acumulador = 0
-    for elemento, frecuencia in Frecuencias_Absolutas.items():
-        acumulador += frecuencia
-        Frecuencia_Absoluta_Acumulada[elemento] = acumulador
+    Frecuencias_Absolutas = CALCULAR_FRECUENCIA_ABSOLUTA(lista) #Se obtienen las frecuencias absolutas con la función ya creada
+    Frecuencia_Absoluta_Acumulada = {} # Diccionario para almacenar la frecuencia absoluta acumulada de cada elemento
+    Acumulador = 0 #Variable acumuladora para almacenar la frecuencia acumulada actual
+    for elemento, frecuencia in Frecuencias_Absolutas.items(): # Recorrer las frecuencias absolutas y calcular la frecuencia absoluta acumulada
+        Acumulador += frecuencia # Incrementar el acumulador con la frecuencia actual
+        Frecuencia_Absoluta_Acumulada[elemento] = Acumulador # Asignar la frecuencia absoluta acumulada al elemento
     return Frecuencia_Absoluta_Acumulada
 
 # En esta funcion se ingresa una lista, y se devuelve otra lista con las frecuencias relativas de cada elemento de la lista (elementos no repetidos)
