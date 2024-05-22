@@ -17,7 +17,7 @@ print(numero_muestra)
 while True:    
     while True:
         #Este print le permite al usuario seleccionar que tipo de informacion desea recibir de la lista de muestras
-        respuesta = input("¿Que medidas desea conocer? 1 = MEDIDAS DE POSICIÓN | 2 = FRECUENCIAS | 3 = Finalizar")
+        respuesta = input("¿Que medidas desea conocer? 1 = MEDIDAS DE POSICIÓN | 2 = FRECUENCIAS | 3 = Finalizar. \n ==> ")
         if int(respuesta) == 1:
             print("Seleccionaste < medidas de posición >")
             resultado = MEDIDAS_POSICION(lista_muestras)
