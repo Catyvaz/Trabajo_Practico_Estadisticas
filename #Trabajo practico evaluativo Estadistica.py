@@ -32,13 +32,13 @@ while True:
 
     #Aca se evalua si se quiere seguir utilizando el programa o no
     # CATY, ver que va a hacer el programa en caso de escribir un comando no valido, en todo caso, hacer que cualquier letra signifique fin del programa 
-    continuacion = input("¿Desea volver a empezar? Y = si, N = no : ")
+    continuacion = input("¿Desea volver a empezar? Y = si, cualquier cosa = no : ")
     if continuacion.isalpha():
-        if continuacion.upper() == "N":
-            break
-        elif continuacion.upper == "Y":
+        if continuacion.upper() == "Y":
             print("Volvemos a empezar!")
-        else: #arreglar esta linea
-            print("Comando no válido.")
+        else:
+            print("Fin del programa.")
+            break
     else:
-        print("Comando no válido")
+        print("Fin del programa.")
+        break
