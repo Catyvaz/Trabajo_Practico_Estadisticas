@@ -48,7 +48,6 @@ def DESVIACION_ESTANDAR(lista):
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
     return desviacion 
 
-
 def CALCULAR_CUARTILES(lista):
     #Ordena la lista de menor a mayor y la guarda en la variable lista_ordenada
     lista_ordenada=sorted(lista)
@@ -65,9 +64,9 @@ def CALCULAR_CUARTILES(lista):
 
     return q1, q2, q3 
 
-def RANGO(n_mayor, n_menor):
+def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
-    valor_rango = n_mayor - n_menor
+    valor_rango = lista[-1] - lista[0]
     return valor_rango
 
 #FRECUENCIAS
@@ -119,7 +118,6 @@ def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     # La funcion devuelve una LISTA con todos los valores de la aumulada, en la posicion de los elementos de la lista, ya ordenados de mayor a menor.
     return frecuencia_relativa_acumulada
 
-
 #En esta funcion se calcula la frecuencia porcentual de cada elemento en la lista
 def CALCULAR_FRECUENCIA_PORCENTUAL(lista):
     #Se llama a la funcion CALCULAR_FRECUENCIA_RELATIVA para obtener la frecuencia relativa
@@ -150,7 +148,6 @@ def CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista):
     #Devuelve la lista de frecuencias porcentuales acumuladas
     return frecuencia_porcentual_acumulada
     
-
 #INTERVALOS
 
 def CALCULAR_AMPLITUD_INTERVALOS(datos, numero_intervalos):
@@ -176,8 +173,7 @@ def CALCULAR_INTERVALOS_CLASE(datos):
 
     return Intervalos 
 
-
-#####################################################################################################################################
+# Funciones del input
 
 # Converti el input en una funcion, para que si en algun momento se desean agregar mas elementos, se pueda reutilizar
 def AGREGAR_ELEMENTOS_INPUT(lista):
@@ -201,47 +197,84 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
     lista = sorted(lista)
     return lista
 
-lista_muestras = []
-lista_muestras = AGREGAR_ELEMENTOS_INPUT(lista_muestras)
-numero_muestra = len(lista_muestras)
-print(lista_muestras)
-print(numero_muestra)
-
-#CATY terminar la funcionalidad de modificar la lista
-# while True:
-#     cambios = input("Desea realizar algun cambio? \n 1 = SI | 2 = NO: ")
-#     if cambios == 1:
-#         si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3 = agregar")
-
 #Funciones que evaluan cositas, lo tengo que terminar, lo hago funcion para que quede mas limpio el codigo, lo hablamos
-def MEDIDAS_POSICION(lista):
-    comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = RANGO.\n 7 = DESVIO ESTANDAR.\n 8 = CUARTILES.\n ==>"))
-    # if comando == 1:
-
- #def TABLAS_FRECUENCIAS(lista):
-    # comando = int(input("¿Que frecuencia desea conocer?\n 1 = ABSOLUTA. \n 2 = ABSOLUTA ACUMULADA.\n 3 = RELATIVA.\n 4 = RELATIVA ACUMULADA.\n 5 = PORCENTUAL.\n 6 = PORCENTUAL ACUMULADA.\n 7 = INTERVALOS.\ 8 = AMPLITUD DE INTERVALOS.\n ==> "))
-        
-# esto seria lo unico que queda en el main, pero podemos dejar tambien las funciones que ordenan al input, hay que hablarlo
-while True:    
-    #Este print le permite al usuario seleccionar que tipo de informacion desea recibir de la lista de muestras
-    # CATY, hay que hacer que esto sea mas util para el usuario (agregar numeros olvidados, que no se termine de una, etc)
-    respuesta = input("¿Que medidas desea conocer? 1 = MEDIDAS DE POSICIÓN | 2 = FRECUENCIAS: ")
-    if int(respuesta) == 1:
-        print("Seleccionaste < medidas de posición >")
-        resultado = MEDIDAS_POSICION(lista_muestras)
-    elif int(respuesta) == 2:
-        print("Seleccionaste < frecuencias >")
-        #resultado = TABLAS_FRECUENCIAS(lista_muestras)
-
-    #Aca se evalua si se quiere seguir utilizando el programa o no
-    # CATY, ver que va a hacer el programa en caso de escribir un comando no valido, en todo caso, hacer que cualquier letra signifique fin del programa 
-    continuacion = input("¿Desea volver a empezar? Y = si, N = no : ")
-    if continuacion.isalpha():
-        if continuacion.upper() == "N":
+def MEDIDAS_POSICION(lista): #Aca se ve que funcion de las medidad de posicion es la que se va a aplicar, de acuerdo a los numeros.
+    while True:
+        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = RANGO.\n 7 = DESVIO ESTANDAR.\n 8 = CUARTILES.\n ==>"))
+        if comando == 1:
+            valor = "La > Media Aritmérica < de la lista es "
+            resultado = MEDIA(lista)
             break
-        elif continuacion.upper == "Y":
-            print("Volvemos a empezar!")
-        else: #arreglar esta linea
-            print("Comando no válido.")
-    else:
-        print("Comando no válido")
+        elif comando == 2:
+            valor = "La > Moda < de la lista es "
+            resultado = CALCULAR_MODA(lista)
+            break
+        elif comando == 3:
+            valor = "La > Mediana < de la lista es "
+            resultado = CALCULAR_MEDIANA(lista)
+            break
+        elif comando == 4:
+            valor = "El > Máximo < de la lista es "
+            resultado = lista[-1]
+            break
+        elif comando == 5:
+            valor = "El > Mínimo < de la lista es "
+            resultado = lista[0]
+            break
+        elif comando == 6:
+            valor = "El > Rango < de la lista es "
+            resultado = RANGO(lista)
+            break
+        elif comando == 7:
+            valor = "El > Desvio Estandar < de la lista es "
+            resultado = DESVIACION_ESTANDAR(lista)
+            break
+        elif comando == 8:
+            valor = "Los > Cuartiles < de la lista son "
+            resultado = CALCULAR_CUARTILES(lista)
+            break
+        else:
+            print("Comando incorrecto, intente de nuevo")
+    
+    print(lista)
+    print(f"{valor}: ", resultado)
+
+def TABLAS_FRECUENCIAS(lista):  #Aca se ve que funcion de las tablas de frecuencia es la que se va a aplicar, de acuerdo a los numeros.
+    while True:
+        comando = int(input("¿Que frecuencia desea conocer?\n 1 = ABSOLUTA. \n 2 = ABSOLUTA ACUMULADA.\n 3 = RELATIVA.\n 4 = RELATIVA ACUMULADA.\n 5 = PORCENTUAL.\n 6 = PORCENTUAL ACUMULADA.\n 7 = INTERVALOS.\n 8 = AMPLITUD DE INTERVALOS.\n ==> "))
+        if comando == 1:
+            valor = "La > Frecuencia Absoluta < de la lista es "
+            resultado = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+            break
+        elif comando == 2:
+            valor = "La > Frecuencia Absoluta Acumulada < de la lista es "
+            resultado = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista)
+            break
+        elif comando == 3:
+            valor = "La > Frecuencia Relativa < de la lista es "
+            resultado = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
+            break
+        elif comando == 4:
+            valor = "La > Frecuencia Relativa Acumulada < de la lista es "
+            resultado = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista)
+            break
+        elif comando == 5:
+            valor = "La > Frecuencia Porcentual < de la lista es "
+            resultado = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
+            break
+        elif comando == 6:
+            valor = "La > Frecuencia Porcentual Acumulada < de la lista es "
+            resultado = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista)
+            break
+        elif comando == 7:
+            valor = "Los > Intervalos < de la lista son "
+            resultado = CALCULAR_INTERVALOS_CLASE(lista)
+            break
+        elif comando == 8:
+            valor = "La > Amplitud de Intervalos < de la lista es "
+            resultado = CALCULAR_AMPLITUD_INTERVALOS(lista)
+            break
+        else:
+            print("Comando incorrecto, intente de nuevo")
+    print(lista)
+    print(f"La {valor}: ", resultado)   
