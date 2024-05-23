@@ -5,13 +5,6 @@ lista_muestras = AGREGAR_ELEMENTOS_INPUT(lista_muestras)
 numero_muestra = len(lista_muestras)
 print(lista_muestras)
 print(numero_muestra)
-
-#CATY terminar la funcionalidad de modificar la lista
-# while True:
-#     cambios = input("Desea realizar algun cambio? \n 1 = SI | 2 = NO: ")
-#     if cambios == 1:
-#         si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3 = agregar")
-
   
 # esto seria lo unico que queda en el main, pero podemos dejar tambien las funciones que ordenan al input, hay que hablarlo
 while True:    
@@ -42,3 +35,10 @@ while True:
     else:
         print("Fin del programa.")
         break
+
+
+#CATY terminar la funcionalidad de modificar la lista
+# while True:
+#     cambios = input("Desea realizar algun cambio? \n 1 = SI | 2 = NO: ")
+#     if cambios == 1:
+#         si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3 = agregar")
