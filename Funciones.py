@@ -101,15 +101,23 @@ def CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista):
         Frecuencia_Absoluta_Acumulada[elemento] = Acumulador # Asignar la frecuencia absoluta acumulada al elemento
     return Frecuencia_Absoluta_Acumulada
 
+def SOLO_UN_ELEMENTO(lista):
+    lista_sin_duplicados = []
+    for elemento in lista:
+        if elemento not in lista_sin_duplicados:
+            lista_sin_duplicados.append(elemento)
+    return lista_sin_duplicados
+
 # En esta funcion se ingresa una lista, y se devuelve otra lista con las frecuencias relativas de cada elemento de la lista (elementos no repetidos)
 def CALCULAR_FRECUENCIA_RELATIVA(lista):
     # 1. lista para utilizar al final. 2. Una lista con los elementos sin repetir. 3. El diccionario con las frecuencias absolutas de la lista
     frecuencia_relativa = []
     frecuencia_absoluta = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+    lista_simple = SOLO_UN_ELEMENTO(lista)
     # se evaluan los elementos que estan en la lista, y utilizando el elemento como key, se busca el valor absoluto del elemento
     # Al tener la frecuencia absoluta, se la divide por la cantidad de elementos en la lista original. Se agrega SOLO el valor relativo a la lista
     # en la posicion del elemento 
-    for elemento in lista:
+    for elemento in lista_simple:
         absoluta = frecuencia_absoluta[(elemento)]
         frecuencia = absoluta / len(lista)
         frecuencia_relativa.append(round(frecuencia, 4)) #ver si hay que redondearlo o no
@@ -264,7 +272,7 @@ def TABLAS_FRECUENCIAS(lista):  #Aca se ve que funcion de las tablas de frecuenc
             break
         elif comando == 3:
             valor = "La > Frecuencia Relativa < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
+            resultado = CALCULAR_FRECUENCIA_RELATIVA(lista)
             break
         elif comando == 4:
             valor = "La > Frecuencia Relativa Acumulada < de la lista es "
