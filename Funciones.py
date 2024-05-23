@@ -210,7 +210,7 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
         # Si es un valor numerico, se lo agrega a la lista "lista_muestras".
         # Si el valor es NO numerico, se evalua; si es la palabra "FIN" no se desean agregar mas números a la lista, si es una letra random marca no valido y deja volver a intentar.
         if valor.isdigit():
-            lista.append(int(valor))
+            lista.append(float(valor))
             numero_muestra += 1
         elif valor.isalpha():
             if valor.upper() == "FIN":
@@ -218,6 +218,14 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
                 break
             else:
                 print("Comando no válido, intente de nuevo.")
+        else: #Se va a intentar pasar el valor a un elemento float, en caso de no poder, en vez de frenar el código, aparecerá la exepcion pero podemos continuar
+            try:
+                valor = float(valor)
+                lista.append(valor)
+                numero_muestra += 1
+            except:
+                print("Comando no válido, intente de nuevo.")
+
     lista = sorted(lista)
     return lista
 
