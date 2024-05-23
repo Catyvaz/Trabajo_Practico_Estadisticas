@@ -4,9 +4,9 @@ import math
 def MEDIA(lista):
     media = sum(lista)/len(lista)
     return media 
-
-def CALCULAR_MODA(lista):
-    frequencia= {}
+#corregirlo 
+'''def CALCULAR_MODA(lista):
+    frequencia= {}4
     for elemento in lista:
         if elemento in frequencia:
             frequencia[elemento] +=1
@@ -14,12 +14,27 @@ def CALCULAR_MODA(lista):
             frequencia[elemento] = 1
     moda = None
     maxFrequencia= 0
-    for elemento, frequencia in frequencia.items():
-        if frequencia>maxFrequencia:
+    for elemento, freq in frequencia.items():
+        if freq>maxFrequencia:
             moda=elemento
-            maxFrequencia=frequencia
+            maxFrequencia=freq
               
-    return moda
+    return moda'''
+
+def CALCULAR_MODA(lista):
+    max_count = 0
+    modas=[]
+    for numero in lista:
+        count=0
+        for elem in lista:
+            if elem == numero:
+                count += 1
+        if count > max_count:
+            max_count = count
+            modas = [numero]
+        elif count == max_count and numero not in modas:
+            modas.append(numero)
+    return modas
 
 def CALCULAR_MEDIANA(lista):
     listaOrdenada=sorted(lista) # Ordena la lista de mayor a menor para luego poder obtener el valor del medio
