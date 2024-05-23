@@ -51,16 +51,29 @@ def DESVIACION_ESTANDAR(lista):
 
 def CALCULAR_CUARTILES(lista):
     lista.sort()
-    Longitud_Lista= len(lista)
-    if Longitud_Lista % 2 == 0:
-        q1 = (lista[Longitud_Lista//2 - 1] + lista[Longitud_Lista//2]) / 2
-        q2 = (lista[Longitud_Lista//4] + lista[Longitud_Lista//4*3]) / 2
-        q3 = (lista[Longitud_Lista//2*3 - 1] + lista[Longitud_Lista//2*3]) / 2
-    else:
-        q1 = lista[Longitud_Lista//2]
-        q2 = (lista[Longitud_Lista//4] + lista[Longitud_Lista//4*3]) / 2
-        q3 = lista[Longitud_Lista//2*3]
+    n = len(lista)
+    
+    def calcular_posicion_cuartil(cuartil):
+        return (cuartil * (n + 1)) / 4.0
 
+    def calcular_cuartil(pos):
+        if pos.is_integer():
+            return lista[int(pos) - 1]
+        else:
+            inferior = int(pos) - 1
+            superior = inferior + 1
+            peso_superior = pos - (inferior + 1)
+            peso_inferior = 1 - peso_superior
+            return lista[inferior] * peso_inferior + lista[superior] * peso_superior
+
+    q1_pos = calcular_posicion_cuartil(1)
+    q2_pos = calcular_posicion_cuartil(2)
+    q3_pos = calcular_posicion_cuartil(3)
+    
+    q1 = calcular_cuartil(q1_pos)
+    q2 = calcular_cuartil(q2_pos)
+    q3 = calcular_cuartil(q3_pos)
+    
     return q1, q2, q3
 
 def RANGO(lista):
