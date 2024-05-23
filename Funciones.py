@@ -39,15 +39,18 @@ def CALCULAR_PROMEDIO(lista):
         return 0
     return sum(lista) / len(lista)
 
-# calcular desviacion estandar((sumatoria de todos los datos - prom)**2/cant de datos -1)
+# calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
 def DESVIACION_ESTANDAR(lista):
     n = len(lista)
     if n <= 1:
         return 0
     promedio = MEDIA(lista)
-    suma_resta_cuadrado = (sum(lista) - promedio) ** 2
+    #Calcula la suma de los cuadrados de las diferencias entre cada elemento y el promedio
+    suma_resta_cuadrado = sum((x- promedio) ** 2 for x in lista)
+    #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
+    #y tomando la raiz cuadrada del resultado
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
-    return desviacion 
+    return desviacion
 
 def CALCULAR_CUARTILES(lista):
     lista.sort()
