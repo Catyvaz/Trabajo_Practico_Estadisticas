@@ -1,3 +1,4 @@
+import math
 #MEDIDAS DE POSICION
 
 def MEDIA(lista):

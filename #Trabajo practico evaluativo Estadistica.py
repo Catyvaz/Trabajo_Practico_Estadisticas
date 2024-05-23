@@ -1,4 +1,5 @@
 from Funciones import *
+import math
 
 lista_muestras = []
 lista_muestras = AGREGAR_ELEMENTOS_INPUT(lista_muestras)
