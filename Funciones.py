@@ -55,11 +55,12 @@ def DESVIACION_ESTANDAR(lista):
 
 def CALCULAR_CUARTILES(lista):
     n = len(lista)
-    
-    
-    q1 = calcular_cuartil(q1_pos)
-    q2 = calcular_cuartil(q2_pos)
-    q3 = calcular_cuartil(q3_pos)
+    mediana = CALCULAR_MEDIANA (lista)
+
+
+    q1 =  
+    q2 = 
+    q3 = 
     
     return q1, q2, q3
 
