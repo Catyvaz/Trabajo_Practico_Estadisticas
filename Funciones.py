@@ -4,38 +4,27 @@ import math
 def MEDIA(lista):
     media = sum(lista)/len(lista)
     return media 
-#corregirlo 
-'''def CALCULAR_MODA(lista):
-    frequencia= {}4
-    for elemento in lista:
-        if elemento in frequencia:
-            frequencia[elemento] +=1
-        else:
-            frequencia[elemento] = 1
-    moda = None
-    maxFrequencia= 0
-    for elemento, freq in frequencia.items():
-        if freq>maxFrequencia:
-            moda=elemento
-            maxFrequencia=freq
-              
-    return moda'''
-
+    
 def CALCULAR_MODA(lista):
-    max_count = 0
-    modas=[]
-    for numero in lista:
-        count=0
-        for elem in lista:
-            if elem == numero:
-                count += 1
-        if count > max_count:
-            max_count = count
-            modas = [numero]
-        elif count == max_count and numero not in modas:
-            modas.append(numero)
-    return modas
+    Max_Contador = 0
+    Modas = []
+    
+    for Numero in lista:
+        Cont = 0
+        for Elem in lista:
+            if Elem == Numero:
+                Cont += 1
+        if Cont > Max_Contador:
+            Max_Contador = Cont
+            Modas = [Numero]
+        elif Cont == Max_Contador and Numero not in Modas:
+            Modas.append(Numero)
 
+    if len(Modas) == len(set(lista)): #set elimina automáticamente los elementos duplicados y conserva solo uno de cada elemento
+        return "No hay moda"
+    else:
+        return Modas
+    
 def CALCULAR_MEDIANA(lista):
     listaOrdenada=sorted(lista) # Ordena la lista de mayor a menor para luego poder obtener el valor del medio
     longitudLista=len(listaOrdenada) # Almacena la longitud de la lista (ya ordenada)
