@@ -72,7 +72,7 @@ def CALCULAR_CUARTILES(lista):
      q2 = mediana #se define a q2 como la mediana
      q3 = CALCULAR_MEDIANA(mitad_superior) #se calcula la mediana de la mitad superior
     
-     return q1, q2, q3
+     return print("Cuartil 1:", q1 , "// Cuartil 2:",q2,"// Cuartil 3:", q3) #SE PRINTEAN LOS 3 CUARTILES COMO 
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
