@@ -57,16 +57,22 @@ def DESVIACION_ESTANDAR(lista):
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
     return desviacion
 
-# def CALCULAR_CUARTILES(lista):
-#     n = len(lista)
-#     mediana = CALCULAR_MEDIANA (lista)
+def CALCULAR_CUARTILES(lista):
+     Longitud_Lista = len(lista)
+     mediana = CALCULAR_MEDIANA (lista)   #se define la mediana para ser utilizada como q2
 
+     if Longitud_Lista % 2 == 0:
+        mitad_inferior = lista[:Longitud_Lista//2] #obtiene la mitad inferior de la lista utilizando el slicing (comienza al principio de la lista y finaliza en la mitad Longitud_lista//2)
+        mitad_superior = lista[Longitud_Lista//2:] #obtiene la mitad superior de la lista utilizando el slicing (comienza en la mitad Longitud_lista//2 finaliza en el ultimo indice de la lista)
+     else:
+        mitad_inferior = lista[:Longitud_Lista//2] #obtiene la mitad inferior de la lista utilizando el slicing (comienza al principio de la lista y finaliza en la mitad Longitud_lista//2)
+        mitad_superior = lista[Longitud_Lista//2 + 1:] #obtiene la mitad superior de la lista utilizando el slicing (comienza en la mitad Longitud_lista//2 finaliza en el ultimo indice de la lista)
 
-#     q1 =  
-#     q2 = 
-#     q3 = 
+     q1 = CALCULAR_MEDIANA(mitad_inferior) #se calcula la mediana de la mitad inferior
+     q2 = mediana #se define a q2 como la mediana
+     q3 = CALCULAR_MEDIANA(mitad_superior) #se calcula la mediana de la mitad superior
     
-#     return q1, q2, q3
+     return q1, q2, q3
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
