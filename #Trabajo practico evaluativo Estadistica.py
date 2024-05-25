@@ -3,8 +3,8 @@ from Funciones import *
 
 while True:
     print("******************************************")
-    print("*****     SOFTWARE DE ESTADISTICA     ****")
-    print("***           VERSIÓN INICIAL         ****")
+    print("****      SOFTWARE DE ESTADISTICA     ****")
+    print("****          VERSIÓN INICIAL         ****")
     print("******************************************")
 
     # Estas lineas son las que permiten que el usuario ingrese los datos, los cuales se almacenan en una lista, la cual se ordena de menor a mayor, y solo permite valores numéricos.
