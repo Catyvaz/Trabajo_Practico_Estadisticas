@@ -4,7 +4,8 @@ import math
 def MEDIA(lista):
     media = sum(lista)/len(lista)
     return media 
-    
+
+#Esta funcion calcula el o los números que más se repiten en una lista de números
 def CALCULAR_MODA(lista):
     Max_Contador = 0
     Modas = []
@@ -17,9 +18,11 @@ def CALCULAR_MODA(lista):
         if Cont > Max_Contador:
             Max_Contador = Cont
             Modas = [Numero]
+        #este elif comprueba si hay otro número que también sea moda, se agrega a la variable moda para que muestre todas las modas 
         elif Cont == Max_Contador and Numero not in Modas:
             Modas.append(Numero)
-
+            
+    #este if sirve para corroborar que si todos los números están la misma cantidad de veces, no hay moda
     if len(Modas) == len(set(lista)): #set elimina automáticamente los elementos duplicados y conserva solo uno de cada elemento
         return "No hay moda"
     else:
