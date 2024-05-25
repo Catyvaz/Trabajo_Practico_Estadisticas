@@ -82,12 +82,16 @@ def RANGO(lista):
 #FRECUENCIAS
 
 def CALCULAR_FRECUENCIA_ABSOLUTA(lista):
-    frecuencias = {}
-    for elemento in lista:
-        if elemento in frecuencias:
-            frecuencias[elemento] += 1
+    # Creamos un diccionario para almacenar las frecuencias.
+    # Las claves serán los números de muestra y los valores serán la cantidad de veces que se repiten los números.
+    frecuencias = {} 
+    for elemento in lista: # Iteramos sobre cada elemento en la lista
+        if elemento in frecuencias: # Verificamos si el elemento ya está en el diccionario
+            frecuencias[elemento] += 1  # Si el elemento ya está en el diccionario,incrementamos su contador de frecuencia en 1.
+                                        
         else:
-            frecuencias[elemento] = 1
+            frecuencias[elemento] = 1  #Si el elemento no está en el diccionario,lo agregamos al diccionario con una frecuencia de 1.
+           
     return frecuencias
 
 def CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista):
