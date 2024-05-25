@@ -60,16 +60,16 @@ def DESVIACION_ESTANDAR(lista):
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
     return desviacion
 
-def CALCULAR_CUARTILES(lista):
-    n = len(lista)
-    mediana = CALCULAR_MEDIANA (lista)
+# def CALCULAR_CUARTILES(lista):
+#     n = len(lista)
+#     mediana = CALCULAR_MEDIANA (lista)
 
 
-    q1 =  
-    q2 = 
-    q3 = 
+#     q1 =  
+#     q2 = 
+#     q3 = 
     
-    return q1, q2, q3
+#     return q1, q2, q3
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
@@ -129,7 +129,7 @@ def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     # Se pasa por cada elemento de la lista, y se lo suma al total, el cual va acumulando todos los valores
     for i in range (len(frecuencia_relativa)):
         total += frecuencia_relativa[i]
-        frecuencia_relativa_acumulada.append(total)
+        frecuencia_relativa_acumulada.append(round(total, 4))
     # La funcion devuelve una LISTA con todos los valores de la aumulada, en la posicion de los elementos de la lista, ya ordenados de mayor a menor.
     return frecuencia_relativa_acumulada
 
