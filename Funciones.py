@@ -199,7 +199,7 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
     print("Ingrese los datos uno por uno, y aprete enter para confirmar y continuar agregando mas datos. \nCuando ya no desee agregar más, coloque la palabra FIN")
     while True:
         # Se ingresan los numeros uno por uno y mediante el "numero_muestra + 1" se va incrementando en la terminal el numero que se ingresa.
-        valor = input(f"Ingrese número de muestra {numero_muestra + 1}: ")
+        valor = input(f"Ingrese dato número {numero_muestra + 1}: ")
         # Aca se evalua si el elemento ingresado es de valor numerico. 
         # Si es un valor numerico, se lo agrega a la lista "lista_muestras".
         # Si el valor es NO numerico, se evalua; si es la palabra "FIN" no se desean agregar mas números a la lista, si es una letra random marca no valido y deja volver a intentar.
@@ -208,7 +208,7 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
             numero_muestra += 1
         elif valor.isalpha():
             if valor.upper() == "FIN":
-                print("Fin de las muestras")
+                print("Fin de la muestra")
                 break
             else:
                 print("Comando no válido, intente de nuevo.")

@@ -12,20 +12,23 @@ while True:
     lista_muestras = AGREGAR_ELEMENTOS_INPUT(lista_muestras)
     numero_muestra = len(lista_muestras)
     #En pantalla se imprime la lista de los elementos dados por el usuario y la cantidad de elementos que se ingresaron
-    print(lista_muestras)
-    print(numero_muestra)
+    print("Muestra: ", lista_muestras)
+    print("Cantidad de datos: ", numero_muestra)
     
     # Este es el main del código, aca se ejecuta todo el programa y se hacen las llamadas al documento "Funciones", del cual extraemos las funciones necesarias   
     while True: #Este while le permite al usuario utilizar tantas veces quiera las opciones que se ofrecen
         #La variable respuesta le permite al usuario escribir el valor de que tipo de informacion desea recibir de la lista de muestras
-        respuesta = input("¿Que medidas desea conocer? 1 = MEDIDAS DE POSICIÓN | 2 = FRECUENCIAS | 3 = Finalizar. \n ==> ")
+        respuesta = input("¿Que medidas desea conocer? 1 = MEDIDAS DE POSICIÓN | 2 = MEDIDAS DE DISPERCIÓN  | 3 = FRECUENCIAS | 4 = Finalizar. \n ==> ")
         if int(respuesta) == 1:
             print("Seleccionaste < Medidas de Posición >")
             resultado = MEDIDAS_POSICION(lista_muestras)
         elif int(respuesta) == 2:
-            print("Seleccionaste < Frecuencias >")
+            print("Seleccionaste < Medidas de Disperción >")
             resultado = TABLAS_FRECUENCIAS(lista_muestras)
         elif int(respuesta) == 3:
+            print("Seleccionaste < Frecuencias >")
+            resultado = TABLAS_FRECUENCIAS(lista_muestras)
+        elif int(respuesta) == 4:
             print("Finalizando...")
             break
         else:
