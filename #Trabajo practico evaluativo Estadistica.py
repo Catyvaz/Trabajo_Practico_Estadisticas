@@ -12,8 +12,8 @@ while True:
     lista_muestras = AGREGAR_ELEMENTOS_INPUT(lista_muestras)
     numero_muestra = len(lista_muestras)
     #En pantalla se imprime la lista de los elementos dados por el usuario y la cantidad de elementos que se ingresaron
-    print(lista_muestras)
-    print(numero_muestra)
+    print("Muestra: ", lista_muestras)
+    print("Cantidad de datos: ", numero_muestra)
     
     # Este es el main del código, aca se ejecuta todo el programa y se hacen las llamadas al documento "Funciones", del cual extraemos las funciones necesarias   
     while True: #Este while le permite al usuario utilizar tantas veces quiera las opciones que se ofrecen
