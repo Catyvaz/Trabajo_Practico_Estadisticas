@@ -57,16 +57,16 @@ def DESVIACION_ESTANDAR(lista):
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
     return desviacion
 
-def CALCULAR_CUARTILES(lista):
-    n = len(lista)
-    mediana = CALCULAR_MEDIANA (lista)
+# def CALCULAR_CUARTILES(lista):
+#     n = len(lista)
+#     mediana = CALCULAR_MEDIANA (lista)
 
 
-    q1 =  
-    q2 = 
-    q3 = 
+#     q1 =  
+#     q2 = 
+#     q3 = 
     
-    return q1, q2, q3
+#     return q1, q2, q3
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
@@ -190,7 +190,7 @@ def CALCULAR_INTERVALOS_CLASE(datos):
 # Converti el input en una funcion, para que si en algun momento se desean agregar mas elementos, se pueda reutilizar
 def AGREGAR_ELEMENTOS_INPUT(lista):
     numero_muestra = 0
-    print("Ingrese las muestras una por una. Cuando ya no desee agregar más, coloque la palabra FIN")
+    print("Ingrese los datos uno por uno, y aprete enter para confirmar y continuar agregando mas datos. \nCuando ya no desee agregar más, coloque la palabra FIN")
     while True:
         # Se ingresan los numeros uno por uno y mediante el "numero_muestra + 1" se va incrementando en la terminal el numero que se ingresa.
         valor = input(f"Ingrese número de muestra {numero_muestra + 1}: ")
