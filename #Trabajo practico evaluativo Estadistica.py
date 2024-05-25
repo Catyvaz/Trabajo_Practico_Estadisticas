@@ -1,5 +1,5 @@
-from Funciones import *
 import math
+from Funciones import *
 
 while True:
     print("******************************************")
@@ -24,7 +24,19 @@ while True:
             resultado = MEDIDAS_POSICION(lista_muestras)
         elif int(respuesta) == 2:
             print("Seleccionaste < Frecuencias >")
-            resultado = TABLAS_FRECUENCIAS(lista_muestras)
+            #resultado = TABLAS_FRECUENCIAS(lista_muestras)
+
+            F_A = CALCULAR_FRECUENCIA_ABSOLUTA(lista_muestras)
+            F_A_A = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista_muestras)
+            F_R = CALCULAR_FRECUENCIA_RELATIVA(lista_muestras)
+            F_R_A = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista_muestras)
+            F_P = CALCULAR_FRECUENCIA_PORCENTUAL(lista_muestras)
+            F_P_A = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista_muestras)
+
+            print("Dato\tF_A_\tF_A_A_\tF_R_\F_R_A\tF_P_\tF_P_A_")
+            for i in range(len(lista_muestras)):
+                print(f"{lista_muestras[i]}\t{F_A_A[i]}\t{F_R[i]}\t{F_R_A[i]}\t{F_P[i]}\t{F_P_A[i]}")
+
         elif int(respuesta) == 3:
             print("Finalizando...")
             break
