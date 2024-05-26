@@ -35,10 +35,10 @@ while True:
             F_P_A = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista_muestra_norep)
 
             print(F_A)
-            print("Dato \t F_A \t F_A_A \t F_R \t F_R_A \t F_P \t F_P_A")
+            print(f"{'Dato':<10} {'F_A':<10} {'F_A_A':<10} {'F_R':<10} {'F_R_A':<10} {'F_P':<10} {'F_P_A':<10}")
             for i in range(len(lista_muestra_norep)):
                 n = lista_muestra_norep[i]
-                print(f"{n} \t {F_A[(n)]} \t {F_A_A[n]} \t {F_R[i]} \t {F_R_A[i]} \t {F_P[i]} \t {F_P_A[i]} ")
+                print(f"{n:<10.2f} {F_A[(n)]:<10} {F_A_A[n]:<10.4f} {F_R[i]:<10.4f} {F_R_A[i]:<10.4f} {F_P[i]:<10.4f} {F_P_A[i]:<10.4f} ")
 
         elif int(respuesta) == 3:
             print("Finalizando...")
