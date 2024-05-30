@@ -44,19 +44,6 @@ def CALCULAR_PROMEDIO(lista):
         return 0
     return sum(lista) / len(lista)
 
-# calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
-def DESVIACION_ESTANDAR(lista):
-    n = len(lista)
-    if n <= 1:
-        return 0
-    promedio = MEDIA(lista)
-    #Calcula la suma de los cuadrados de las diferencias entre cada elemento y el promedio
-    suma_resta_cuadrado = sum((x- promedio) ** 2 for x in lista)
-    #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
-    #y tomando la raiz cuadrada del resultado
-    desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
-    return desviacion
-
 def CALCULAR_CUARTILES(lista):
      Longitud_Lista = len(lista)
      mediana = CALCULAR_MEDIANA (lista)   #se define la mediana para ser utilizada como q2
@@ -72,7 +59,24 @@ def CALCULAR_CUARTILES(lista):
      q2 = mediana #se define a q2 como la mediana
      q3 = CALCULAR_MEDIANA(mitad_superior) #se calcula la mediana de la mitad superior
     
+<<<<<<< HEAD
      return q1 ,q2, q3
+=======
+     return ("Cuartil 1: " + str(q1) + "," + " Cuartil 2: " + str(q2) + "," + " Cuartil 3: " + str(q3)) #SE PRINTEAN LOS 3 CUARTILES COMO 
+
+# calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
+def DESVIACION_ESTANDAR(lista):
+    n = len(lista)
+    if n <= 1:
+        return 0
+    promedio = MEDIA(lista)
+    #Calcula la suma de los cuadrados de las diferencias entre cada elemento y el promedio
+    suma_resta_cuadrado = sum((x- promedio) ** 2 for x in lista)
+    #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
+    #y tomando la raiz cuadrada del resultado
+    desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
+    return round(desviacion,4)
+>>>>>>> a76e69016d4893cc4b4d98e1902b9ccfe9d0a82d
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
@@ -136,7 +140,7 @@ def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     # Se pasa por cada elemento de la lista, y se lo suma al total, el cual va acumulando todos los valores
     for i in range (len(frecuencia_relativa)):
         total += frecuencia_relativa[i]
-        frecuencia_relativa_acumulada.append(total)
+        frecuencia_relativa_acumulada.append(round(total, 2))
     # La funcion devuelve una LISTA con todos los valores de la aumulada, en la posicion de los elementos de la lista, ya ordenados de mayor a menor.
     return frecuencia_relativa_acumulada
 
@@ -172,28 +176,60 @@ def CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista):
     
 #INTERVALOS
 
-def CALCULAR_AMPLITUD_INTERVALOS(datos, numero_intervalos):
-    Minimo = min(datos)  # Encontrar el valor mínimo en los datos
-    Maximo = max(datos)  # Encontrar el valor máximo en los datos
-    Amplitud = (Maximo - Minimo) / numero_intervalos  # Calcular la amplitud del intervalo
+def CALCULAR_AMPLITUD_INTERVALOS(datos):
+    from math import sqrt 
+    # Encontrar el valor mínimo y máximo en los datos
+    Minimo = min(datos)
+    Maximo = max(datos)
+    # Calcular la amplitud del intervalo
+    numero_intervalos = sqrt(len(datos))
+    Amplitud = (Maximo - Minimo) / numero_intervalos
     return Amplitud
-    
+
 def CALCULAR_INTERVALOS_CLASE(datos):
-    import math
-    
+    from math import sqrt 
     Cantidad_Datos = len(datos)
-    Numero_Intervalos = 1 + 3.322 * math.log10(Cantidad_Datos) #se utiliza la formula de Sturges para usar la función de logaritmo
-    Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos, Numero_Intervalos) #Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" que creamos antes
-    
+    # Se utiliza la Regla de la raíz cuadrada para obtener el número de intervalos
+    Numero_Intervalos = sqrt(Cantidad_Datos)
+    # Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" 
+    Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos)
+    Amplitud = round(Amplitud, 4)
+
     Limite_Inferior = min(datos)
     Limite_Superior = Limite_Inferior + Amplitud
-    Intervalos = [] #se crea la variable intervalos
+    Intervalos = [] # Se crea la variable intervalos
 
     while Limite_Superior <= max(datos): 
-        Intervalos.append((Limite_Inferior, Limite_Superior)) #se crea el intervalo uniendo los dos límites
+        # Redondear los límites de los intervalos a 4 decimales
+        Limite_Inferior = round(Limite_Inferior, 4)
+        Limite_Superior = round(Limite_Superior, 4)
+        # Se crea el intervalo uniendo los dos límites
+        Intervalos.append((Limite_Inferior, Limite_Superior)) 
         Limite_Inferior = Limite_Superior
         Limite_Superior += Amplitud
     return Intervalos
+
+# def CALCULAR_INTERVALOS_CLASE(datos):
+#     from math import sqrt 
+#     Cantidad_Datos = len(datos)
+#     Numero_Intervalos = sqrt(Cantidad_Datos) #se utiliza la Regla de la raíz cuadrada (sqrt) para obtener el número de intervalos
+#     Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos, Numero_Intervalos) #Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" 
+    
+#     Limite_Inferior = min(datos)
+#     Limite_Superior = Limite_Inferior + Amplitud
+#     Intervalos = [] #se crea la variable intervalos
+
+#     while Limite_Superior <= max(datos): 
+#         Intervalos.append((Limite_Inferior, Limite_Superior)) #se crea el intervalo uniendo los dos límites
+#         Limite_Inferior = Limite_Superior
+#         Limite_Superior += Amplitud
+#     return Intervalos
+
+# def CALCULAR_AMPLITUD_INTERVALOS(datos, numero_intervalos):
+#     Minimo = min(datos)  # Encontrar el valor mínimo en los datos
+#     Maximo = max(datos)  # Encontrar el valor máximo en los datos
+#     Amplitud = (Maximo - Minimo) / numero_intervalos  # Calcular la amplitud del intervalo
+#     return Amplitud
     
 # Funciones del input
 
@@ -230,7 +266,7 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
 #Funciones que evaluan cositas, lo tengo que terminar, lo hago funcion para que quede mas limpio el codigo, lo hablamos
 def MEDIDAS_POSICION(lista): #Aca se ve que funcion de las medidad de posicion es la que se va a aplicar, de acuerdo a los numeros.
     while True:
-        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = RANGO.\n 7 = DESVIO ESTANDAR.\n 8 = CUARTILES.\n ==> "))
+        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = CUARTILES.\n ==> "))
         if comando == 1:
             valor = "La > Media Aritmérica < de la lista es "
             resultado = MEDIA(lista)
@@ -252,14 +288,6 @@ def MEDIDAS_POSICION(lista): #Aca se ve que funcion de las medidad de posicion e
             resultado = lista[0]
             break
         elif comando == 6:
-            valor = "El > Rango < de la lista es "
-            resultado = RANGO(lista)
-            break
-        elif comando == 7:
-            valor = "El > Desvio Estandar < de la lista es "
-            resultado = DESVIACION_ESTANDAR(lista)
-            break
-        elif comando == 8:
             valor = "Los > Cuartiles < de la lista son "
             resultado = CALCULAR_CUARTILES(lista)
             break
@@ -269,42 +297,42 @@ def MEDIDAS_POSICION(lista): #Aca se ve que funcion de las medidad de posicion e
     print(lista)
     print(f"{valor}: ", resultado)
 
-def TABLAS_FRECUENCIAS(lista):  #Aca se ve que funcion de las tablas de frecuencia es la que se va a aplicar, de acuerdo a los numeros.
+def MEDIDAS_DISPERCION(lista): #Aca se ve que funcion de las medidad de posicion es la que se va a aplicar, de acuerdo a los numeros.
     while True:
-        comando = int(input("¿Que frecuencia desea conocer?\n 1 = ABSOLUTA. \n 2 = ABSOLUTA ACUMULADA.\n 3 = RELATIVA.\n 4 = RELATIVA ACUMULADA.\n 5 = PORCENTUAL.\n 6 = PORCENTUAL ACUMULADA.\n 7 = INTERVALOS.\n 8 = AMPLITUD DE INTERVALOS.\n ==> "))
+        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = RANGO.\n 2 = DESVIO ESTANDAR.\n ==> "))
         if comando == 1:
-            valor = "La > Frecuencia Absoluta < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+            valor = "El > Rangos < de la lista es "
+            resultado = RANGO(lista)
             break
         elif comando == 2:
-            valor = "La > Frecuencia Absoluta Acumulada < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista)
+            valor = "El > Desvio Estandar < de la lista es "
+            resultado = DESVIACION_ESTANDAR(lista)
             break
-        elif comando == 3:
-            valor = "La > Frecuencia Relativa < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_RELATIVA(lista)
-            break
-        elif comando == 4:
-            valor = "La > Frecuencia Relativa Acumulada < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista)
-            break
-        elif comando == 5:
-            valor = "La > Frecuencia Porcentual < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
-            break
-        elif comando == 6:
-            valor = "La > Frecuencia Porcentual Acumulada < de la lista es "
-            resultado = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista)
-            break
-        elif comando == 7:
-            valor = "Los > Intervalos < de la lista son "
-            resultado = CALCULAR_INTERVALOS_CLASE(lista)
-            break
-        elif comando == 8:
-            valor = "La > Amplitud de Intervalos < de la lista es "
-            resultado = CALCULAR_AMPLITUD_INTERVALOS(lista)
-            break
-        else:
-            print("Comando incorrecto, intente de nuevo")
     print(lista)
-    print(f"La {valor}: ", resultado)   
+    print(f"{valor}: ", resultado)
+
+def TABLAS_FRECUENCIAS(lista):  #Aca se ve que funcion de las tablas de frecuencia es la que se va a aplicar, de acuerdo a los numeros.
+    while True:
+        comando = int(input("¿Que frecuencia desea conocer?\n 1 = TABLA DE FRECUENCIAS \n 2 = INTERVALOS y AMPLITUD DE INTERVALOS.\n ==> "))
+        if comando == 1:
+            print("Tabla de Frecuencias recuencias de la muestra.")
+            
+            lista_muestra_norep = SOLO_UN_ELEMENTO(lista)
+            F_A = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+            F_A_A = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista)
+            F_R = CALCULAR_FRECUENCIA_RELATIVA(lista)
+            F_R_A = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista)
+            F_P = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
+            F_P_A = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista)
+
+            print(f"{'Dato':<9} {'F_A':<11} {'F_A_A':<10} {'F_R':<10} {'F_R_A':<11} {'F_P':<9} {'F_P_A':<10}")
+            for i in range(len(lista_muestra_norep)):
+                n = lista_muestra_norep[i]
+                print(f"{n:<10.2f} {F_A[(n)]:<10} {F_A_A[n]:<10.4f} {F_R[i]:<10.4f} {F_R_A[i]:<10.4f} {F_P[i]:<10.4f} {F_P_A[i]:<10.4f} ")
+            break
+        elif comando == 2:
+            print("Intervalos y Amplitud de Intervalos")
+            print("Intervalos: ", CALCULAR_INTERVALOS_CLASE(lista))
+            print("Amplitud de Intervalos: ", CALCULAR_AMPLITUD_INTERVALOS(lista))
+            break
+        

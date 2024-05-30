@@ -24,7 +24,7 @@ while True:
             resultado = MEDIDAS_POSICION(lista_muestras)
         elif int(respuesta) == 2:
             print("Seleccionaste < Medidas de Disperción >")
-            resultado = TABLAS_FRECUENCIAS(lista_muestras)
+            resultado = MEDIDAS_DISPERCION(lista_muestras)
         elif int(respuesta) == 3:
             print("Seleccionaste < Frecuencias >")
             resultado = TABLAS_FRECUENCIAS(lista_muestras)
@@ -46,10 +46,3 @@ while True:
     else:
         print("Fin del programa.")
         break
-
-
-#CATY terminar la funcionalidad de modificar la lista
-# while True:
-#     cambios = input("Desea realizar algun cambio? \n 1 = SI | 2 = NO: ")
-#     if cambios == 1:
-#         si = input("Que cambio desea realizar? 1 = eliminar | 2 = modificar | 3 = agregar")
