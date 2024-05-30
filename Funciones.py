@@ -277,40 +277,26 @@ def MEDIDAS_DISPERCION(lista): #Aca se ve que funcion de las medidad de posicion
 
 def TABLAS_FRECUENCIAS(lista):  #Aca se ve que funcion de las tablas de frecuencia es la que se va a aplicar, de acuerdo a los numeros.
     while True:
-        comando = int(input("¿Que frecuencia desea conocer?\n 1 = ABSOLUTA. \n 2 = ABSOLUTA ACUMULADA.\n 3 = RELATIVA.\n 4 = RELATIVA ACUMULADA.\n 5 = PORCENTUAL.\n 6 = PORCENTUAL ACUMULADA.\n 7 = INTERVALOS.\n 8 = AMPLITUD DE INTERVALOS.\n ==> "))
+        comando = int(input("¿Que frecuencia desea conocer?\n 1 = TABLA DE FRECUENCIAS \n 2 = INTERVALOS y AMPLITUD DE INTERVALOS.\n ==> "))
         if comando == 1:
-            valor = "La > Frecuencia Absoluta < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+            print("Tabla de Frecuencias recuencias de la muestra.")
+            
+            lista_muestra_norep = SOLO_UN_ELEMENTO(lista)
+            F_A = CALCULAR_FRECUENCIA_ABSOLUTA(lista)
+            F_A_A = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista)
+            F_R = CALCULAR_FRECUENCIA_RELATIVA(lista)
+            F_R_A = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista)
+            F_P = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
+            F_P_A = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista)
+
+            print(f"{'Dato':<9} {'F_A':<11} {'F_A_A':<10} {'F_R':<10} {'F_R_A':<11} {'F_P':<9} {'F_P_A':<10}")
+            for i in range(len(lista_muestra_norep)):
+                n = lista_muestra_norep[i]
+                print(f"{n:<10.2f} {F_A[(n)]:<10} {F_A_A[n]:<10.4f} {F_R[i]:<10.4f} {F_R_A[i]:<10.4f} {F_P[i]:<10.4f} {F_P_A[i]:<10.4f} ")
             break
         elif comando == 2:
-            valor = "La > Frecuencia Absoluta Acumulada < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista)
+            print("Intervalos y Amplitud de Intervalos")
+            print("Intervalos: ", CALCULAR_INTERVALOS_CLASE(lista))
+            print("Amplitud de Intervalos: ", CALCULAR_AMPLITUD_INTERVALOS(lista))
             break
-        elif comando == 3:
-            valor = "La > Frecuencia Relativa < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_RELATIVA(lista)
-            break
-        elif comando == 4:
-            valor = "La > Frecuencia Relativa Acumulada < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista)
-            break
-        elif comando == 5:
-            valor = "La > Frecuencia Porcentual < de la lista es "
-            resultado = CALCULAR_FRECUENCIA_PORCENTUAL(lista)
-            break
-        elif comando == 6:
-            valor = "La > Frecuencia Porcentual Acumulada < de la lista es "
-            resultado = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista)
-            break
-        elif comando == 7:
-            valor = "Los > Intervalos < de la lista son "
-            resultado = CALCULAR_INTERVALOS_CLASE(lista)
-            break
-        elif comando == 8:
-            valor = "La > Amplitud de Intervalos < de la lista es "
-            resultado = CALCULAR_AMPLITUD_INTERVALOS(lista)
-            break
-        else:
-            print("Comando incorrecto, intente de nuevo")
-    print(lista)
-    print(f"La {valor}: ", resultado)   
+        
