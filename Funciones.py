@@ -111,6 +111,7 @@ def SOLO_UN_ELEMENTO(lista):
     return lista_sin_duplicados
 
 # En esta funcion se ingresa una lista, y se devuelve otra lista con las frecuencias relativas de cada elemento de la lista (elementos no repetidos)
+# Frecuencia absoluta / cantidad de datos
 def CALCULAR_FRECUENCIA_RELATIVA(lista):
     # 1. lista para utilizar al final. 2. Una lista con los elementos sin repetir. 3. El diccionario con las frecuencias absolutas de la lista
     frecuencia_relativa = []
@@ -126,6 +127,7 @@ def CALCULAR_FRECUENCIA_RELATIVA(lista):
     # Devuelve una LISTA
     return frecuencia_relativa
 
+#La frecuencia reltiva de x, sumado a las frecuencias relativas de todos los datos anteriores
 def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     # se crea una lista nueva, vacia, que es donde se van a guardar los datos de la acumulada
     frecuencia_relativa_acumulada = []
