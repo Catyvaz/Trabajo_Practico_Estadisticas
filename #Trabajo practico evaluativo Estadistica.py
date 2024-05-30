@@ -27,12 +27,12 @@ while True:
             #resultado = TABLAS_FRECUENCIAS(lista_muestras)
 
             lista_muestra_norep = SOLO_UN_ELEMENTO(lista_muestras)
-            F_A = CALCULAR_FRECUENCIA_ABSOLUTA(lista_muestra_norep)
-            F_A_A = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista_muestra_norep)
-            F_R = CALCULAR_FRECUENCIA_RELATIVA(lista_muestra_norep)
-            F_R_A = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista_muestra_norep)
-            F_P = CALCULAR_FRECUENCIA_PORCENTUAL(lista_muestra_norep)
-            F_P_A = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista_muestra_norep)
+            F_A = CALCULAR_FRECUENCIA_ABSOLUTA(lista_muestras)
+            F_A_A = CALCULAR_FRECUENCIA_ABSOLUTA_ACUMULADA(lista_muestras)
+            F_R = CALCULAR_FRECUENCIA_RELATIVA(lista_muestras)
+            F_R_A = CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista_muestras)
+            F_P = CALCULAR_FRECUENCIA_PORCENTUAL(lista_muestras)
+            F_P_A = CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista_muestras)
 
             print(F_A)
             print("Dato \t F_A \t F_A_A \t F_R \t F_R_A \t F_P \t F_P_A")
