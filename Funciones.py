@@ -175,8 +175,8 @@ def CALCULAR_FREC_PORCENTUAL_ACUMULADA(lista):
 def CALCULAR_INTERVALOS_CLASE(datos):
     from math import sqrt 
     Cantidad_Datos = len(datos)
-    Numero_Intervalos = sqrt(Cantidad_Datos) #se utiliza la formula de Sturges para usar la función de logaritmo
-    Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos, Numero_Intervalos) #Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" que creamos antes
+    Numero_Intervalos = sqrt(Cantidad_Datos) #se utiliza la Regla de la raíz cuadrada (sqrt) para obtener el número de intervalos
+    Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos, Numero_Intervalos) #Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" 
     
     Limite_Inferior = min(datos)
     Limite_Superior = Limite_Inferior + Amplitud
