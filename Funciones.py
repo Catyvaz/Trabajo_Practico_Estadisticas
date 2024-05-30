@@ -206,28 +206,6 @@ def CALCULAR_INTERVALOS_CLASE(datos):
         Limite_Inferior = Limite_Superior
         Limite_Superior += Amplitud
     return Intervalos
-
-# def CALCULAR_INTERVALOS_CLASE(datos):
-#     from math import sqrt 
-#     Cantidad_Datos = len(datos)
-#     Numero_Intervalos = sqrt(Cantidad_Datos) #se utiliza la Regla de la raíz cuadrada (sqrt) para obtener el número de intervalos
-#     Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos, Numero_Intervalos) #Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" 
-    
-#     Limite_Inferior = min(datos)
-#     Limite_Superior = Limite_Inferior + Amplitud
-#     Intervalos = [] #se crea la variable intervalos
-
-#     while Limite_Superior <= max(datos): 
-#         Intervalos.append((Limite_Inferior, Limite_Superior)) #se crea el intervalo uniendo los dos límites
-#         Limite_Inferior = Limite_Superior
-#         Limite_Superior += Amplitud
-#     return Intervalos
-
-# def CALCULAR_AMPLITUD_INTERVALOS(datos, numero_intervalos):
-#     Minimo = min(datos)  # Encontrar el valor mínimo en los datos
-#     Maximo = max(datos)  # Encontrar el valor máximo en los datos
-#     Amplitud = (Maximo - Minimo) / numero_intervalos  # Calcular la amplitud del intervalo
-#     return Amplitud
     
 # Funciones del input
 
