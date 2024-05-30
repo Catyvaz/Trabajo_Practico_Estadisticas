@@ -44,19 +44,6 @@ def CALCULAR_PROMEDIO(lista):
         return 0
     return sum(lista) / len(lista)
 
-# calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
-def DESVIACION_ESTANDAR(lista):
-    n = len(lista)
-    if n <= 1:
-        return 0
-    promedio = MEDIA(lista)
-    #Calcula la suma de los cuadrados de las diferencias entre cada elemento y el promedio
-    suma_resta_cuadrado = sum((x- promedio) ** 2 for x in lista)
-    #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
-    #y tomando la raiz cuadrada del resultado
-    desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
-    return desviacion
-
 def CALCULAR_CUARTILES(lista):
      Longitud_Lista = len(lista)
      mediana = CALCULAR_MEDIANA (lista)   #se define la mediana para ser utilizada como q2
@@ -72,7 +59,20 @@ def CALCULAR_CUARTILES(lista):
      q2 = mediana #se define a q2 como la mediana
      q3 = CALCULAR_MEDIANA(mitad_superior) #se calcula la mediana de la mitad superior
     
-     return print("Cuartil 1:", q1 , "// Cuartil 2:",q2,"// Cuartil 3:", q3) #SE PRINTEAN LOS 3 CUARTILES COMO 
+     return ("Cuartil 1: " + str(q1) + "," + " Cuartil 2: " + str(q2) + "," + " Cuartil 3: " + str(q3)) #SE PRINTEAN LOS 3 CUARTILES COMO 
+
+# calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
+def DESVIACION_ESTANDAR(lista):
+    n = len(lista)
+    if n <= 1:
+        return 0
+    promedio = MEDIA(lista)
+    #Calcula la suma de los cuadrados de las diferencias entre cada elemento y el promedio
+    suma_resta_cuadrado = sum((x- promedio) ** 2 for x in lista)
+    #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
+    #y tomando la raiz cuadrada del resultado
+    desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
+    return desviacion
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
@@ -136,7 +136,7 @@ def CALCULAR_FRECUENCIA_RELATIVA_ACUMULADA(lista):
     # Se pasa por cada elemento de la lista, y se lo suma al total, el cual va acumulando todos los valores
     for i in range (len(frecuencia_relativa)):
         total += frecuencia_relativa[i]
-        frecuencia_relativa_acumulada.append(total)
+        frecuencia_relativa_acumulada.append(round(total, 2))
     # La funcion devuelve una LISTA con todos los valores de la aumulada, en la posicion de los elementos de la lista, ya ordenados de mayor a menor.
     return frecuencia_relativa_acumulada
 
@@ -230,7 +230,7 @@ def AGREGAR_ELEMENTOS_INPUT(lista):
 #Funciones que evaluan cositas, lo tengo que terminar, lo hago funcion para que quede mas limpio el codigo, lo hablamos
 def MEDIDAS_POSICION(lista): #Aca se ve que funcion de las medidad de posicion es la que se va a aplicar, de acuerdo a los numeros.
     while True:
-        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = RANGO.\n 7 = DESVIO ESTANDAR.\n 8 = CUARTILES.\n ==> "))
+        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = MEDIA ARITMÉTICA.\n 2 = MODA.\n 3 = MEDIANA.\n 4 = MÁXIMO.\n 5 = MINIMO.\n 6 = CUARTILES.\n ==> "))
         if comando == 1:
             valor = "La > Media Aritmérica < de la lista es "
             resultado = MEDIA(lista)
@@ -252,20 +252,26 @@ def MEDIDAS_POSICION(lista): #Aca se ve que funcion de las medidad de posicion e
             resultado = lista[0]
             break
         elif comando == 6:
-            valor = "El > Rango < de la lista es "
-            resultado = RANGO(lista)
-            break
-        elif comando == 7:
-            valor = "El > Desvio Estandar < de la lista es "
-            resultado = DESVIACION_ESTANDAR(lista)
-            break
-        elif comando == 8:
             valor = "Los > Cuartiles < de la lista son "
             resultado = CALCULAR_CUARTILES(lista)
             break
         else:
             print("Comando incorrecto, intente de nuevo")
     
+    print(lista)
+    print(f"{valor}: ", resultado)
+
+def MEDIDAS_DISPERCION(lista): #Aca se ve que funcion de las medidad de posicion es la que se va a aplicar, de acuerdo a los numeros.
+    while True:
+        comando = int(input("¿Que desea conocer sobre la lista?\n 1 = RANGO.\n 2 = DESVIO ESTANDAR.\n ==> "))
+        if comando == 1:
+            valor = "El > Rangos < de la lista es "
+            resultado = RANGO(lista)
+            break
+        elif comando == 2:
+            valor = "El > Desvio Estandar < de la lista es "
+            resultado = DESVIACION_ESTANDAR(lista)
+            break
     print(lista)
     print(f"{valor}: ", resultado)
 
