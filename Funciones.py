@@ -72,7 +72,7 @@ def DESVIACION_ESTANDAR(lista):
     #Calcula la desviación estandar dividiendo la suma de las diferencias cuadradas entre n-1
     #y tomando la raiz cuadrada del resultado
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
-    return desviacion
+    return round(desviacion,4)
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
