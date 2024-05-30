@@ -59,10 +59,7 @@ def CALCULAR_CUARTILES(lista):
      q2 = mediana #se define a q2 como la mediana
      q3 = CALCULAR_MEDIANA(mitad_superior) #se calcula la mediana de la mitad superior
     
-<<<<<<< HEAD
      return q1 ,q2, q3
-=======
-     return ("Cuartil 1: " + str(q1) + "," + " Cuartil 2: " + str(q2) + "," + " Cuartil 3: " + str(q3)) #SE PRINTEAN LOS 3 CUARTILES COMO 
 
 # calcular desviacion estandar: raíz cuadrada ((suma((elemento - media)**2))/cantidad de datos - 1)
 def DESVIACION_ESTANDAR(lista):
@@ -76,7 +73,6 @@ def DESVIACION_ESTANDAR(lista):
     #y tomando la raiz cuadrada del resultado
     desviacion = (suma_resta_cuadrado / (n -1)) ** 0.5
     return round(desviacion,4)
->>>>>>> a76e69016d4893cc4b4d98e1902b9ccfe9d0a82d
 
 def RANGO(lista):
     # en la función rango, se resta el menor valor de las muestras al mayor valor de la muestra
