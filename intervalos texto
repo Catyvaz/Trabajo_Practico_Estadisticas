@@ -1,0 +1,30 @@
+def CALCULAR_AMPLITUD_INTERVALOS(datos, numero_intervalos):
+    # Encontrar el valor mínimo y máximo en los datos
+    Minimo = min(datos)
+    Maximo = max(datos)
+    # Calcular la amplitud del intervalo
+    Amplitud = (Maximo - Minimo) / numero_intervalos
+    return Amplitud
+
+def CALCULAR_INTERVALOS_CLASE(datos):
+    from math import sqrt 
+    Cantidad_Datos = len(datos)
+    # Se utiliza la Regla de la raíz cuadrada para obtener el número de intervalos
+    Numero_Intervalos = sqrt(Cantidad_Datos)
+    # Se llama la función "CALCULAR_AMPLITUD_INTERVALOS" 
+    Amplitud = CALCULAR_AMPLITUD_INTERVALOS(datos, len(datos))
+    Amplitud = round(Amplitud, 4)
+
+    Limite_Inferior = min(datos)
+    Limite_Superior = Limite_Inferior + Amplitud
+    Intervalos = [] # Se crea la variable intervalos
+
+    while Limite_Superior <= max(datos): 
+        # Redondear los límites de los intervalos a 4 decimales
+        Limite_Inferior = round(Limite_Inferior, 4)
+        Limite_Superior = round(Limite_Superior, 4)
+        # Se crea el intervalo uniendo los dos límites
+        Intervalos.append((Limite_Inferior, Limite_Superior)) 
+        Limite_Inferior = Limite_Superior
+        Limite_Superior += Amplitud
+    return Intervalos
